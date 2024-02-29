@@ -4,7 +4,7 @@ import { SidebarButton } from "../SidebarButton";
 
 export function Sidebar() {
   return (
-    <aside className="w-60 bg-zinc-800 p-3">
+    <aside className="w-80 bg-neutral-800 p-3">
       <nav>
         <ul className="flex flex-col gap-2">
           <SidebarButton

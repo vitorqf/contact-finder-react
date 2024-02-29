@@ -17,16 +17,20 @@ export function SidebarButton({
   return (
     <li>
       <button
-        className={`w-full h-10 flex items-center px-2 rounded-md bg-zinc-800  hover:bg-zinc-700 transition-colors duration-200 text-white ${
-          active ? "bg-emerald-700 hover:bg-emerald-800" : ""
+        className={`w-full h-10 flex items-center px-2 rounded-md transition-colors duration-200 text-white ${
+          active
+            ? "bg-emerald-700 hover:bg-emerald-800"
+            : "bg-neutral-800 hover:bg-neutral-700"
         }`}
       >
         {icon && (
-          <span className={`mr-3 ${active ? "text-white" : "text-zinc-500"}`}>
+          <span
+            className={`mr-3 ${active ? "text-white" : "text-neutral-500"}`}
+          >
             {icon}
           </span>
         )}
-        <span className="leading-none font-semibold text-zinc-200">
+        <span className="leading-none font-semibold text-neutral-200">
           {title}
         </span>
       </button>
