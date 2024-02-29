@@ -20,19 +20,15 @@ export function SidebarButton({
         className={`w-full h-10 flex items-center px-2 rounded-md transition-colors duration-200 text-white ${
           active
             ? "bg-emerald-700 hover:bg-emerald-800"
-            : "bg-neutral-800 hover:bg-neutral-700"
+            : "bg-brand-800 hover:bg-brand-700"
         }`}
       >
         {icon && (
-          <span
-            className={`mr-3 ${active ? "text-white" : "text-neutral-500"}`}
-          >
+          <span className={`mr-3 ${active ? "text-white" : "text-brand-500"}`}>
             {icon}
           </span>
         )}
-        <span className="leading-none font-semibold text-neutral-200">
-          {title}
-        </span>
+        <span className="leading-none font-semibold text-white">{title}</span>
       </button>
     </li>
   );
