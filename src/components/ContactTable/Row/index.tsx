@@ -1,3 +1,4 @@
+import moment from "moment";
 import { BsThreeDots } from "react-icons/bs";
 import { TbPencil, TbTrash } from "react-icons/tb";
 import { Contact } from "../../../models/Contact";
@@ -17,7 +18,7 @@ export function ContactRow({ contact }: { contact: Contact }) {
       <ContactCell value={contact.name} className="w-96 text-white pl-8" />
       <ContactCell value={contact.email} />
       <ContactCell value={contact.phone} />
-      <ContactCell value={contact.createdAt} />
+      <ContactCell value={moment(contact.createdAt).format("DD/MM/yyyy")} />
       <td className="py-2 flex flex-col">
         <button
           onClick={handleToggleActions}
