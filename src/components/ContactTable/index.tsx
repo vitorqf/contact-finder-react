@@ -10,7 +10,7 @@ export function ContactTable({
   search: string;
 }) {
   return (
-    <table className="ml-1 w-full">
+    <table className="ml-1 w-full max-w-full">
       <TableHeader />
       <tbody>
         {contacts

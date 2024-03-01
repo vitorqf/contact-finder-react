@@ -41,7 +41,10 @@ export default function Home() {
                 inputValue={search}
                 setInputValue={setSearch}
               />
-              <CountBadge total={total} title="contatos" />
+              <CountBadge
+                total={total}
+                title={total > 1 ? "contatos" : "contato"}
+              />
             </div>
 
             <div className="mr-4 flex items-center gap-2">
