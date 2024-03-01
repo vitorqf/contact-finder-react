@@ -12,6 +12,7 @@ export function ContactRow({ contact }: { contact: Contact }) {
     handleHideActions,
     handleEditContact,
     handleDeleteContact,
+    handleDetailContact,
   } = useRow({ contact });
   return (
     <tr className="border-b border-brand-700 hover:bg-brand-700">
@@ -31,6 +32,7 @@ export function ContactRow({ contact }: { contact: Contact }) {
               handleHideActions={handleHideActions}
               handleEditContact={handleEditContact}
               handleDeleteContact={handleDeleteContact}
+              handleDetailContact={handleDetailContact}
             />
           )}
         </button>

@@ -17,7 +17,7 @@ export function SidebarButton({
   return (
     <li>
       <button
-        className={`w-full h-10 flex items-center px-2 rounded-md transition-colors duration-200 text-white ${
+        className={`w-full h-12 flex items-center px-2 rounded-lg transition-colors duration-200 text-white ${
           active
             ? "bg-emerald-700 hover:bg-emerald-800"
             : "bg-brand-800 hover:bg-brand-700"

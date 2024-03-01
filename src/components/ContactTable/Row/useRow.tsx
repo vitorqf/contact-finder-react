@@ -3,6 +3,7 @@ import deleteContact from "../../../actions/delete-contact";
 import useModal from "../../../hooks/useModal";
 import { Contact } from "../../../models/Contact";
 import { ModalEditContact } from "../../ModalEditContact";
+import { ModalViewContact } from "../../ModalViewContact";
 
 export function useRow({ contact }: { contact: Contact }) {
   const [showActions, setShowActions] = useState(false);
@@ -20,6 +21,11 @@ export function useRow({ contact }: { contact: Contact }) {
     handleHideActions();
     setModalContent(<ModalEditContact contact={contact} />);
   }, [contact, setModalContent, handleHideActions]);
+
+  const handleDetailContact = useCallback(() => {
+    handleHideActions();
+    setModalContent(<ModalViewContact contact={contact} />);
+  }, [contact, handleHideActions, setModalContent]);
 
   const handleDeleteContact = useCallback(async () => {
     const ok = confirm("Deseja realmente excluir este contato?");
@@ -40,5 +46,6 @@ export function useRow({ contact }: { contact: Contact }) {
     handleHideActions,
     handleEditContact,
     handleDeleteContact,
+    handleDetailContact,
   };
 }

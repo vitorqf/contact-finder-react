@@ -1,15 +1,18 @@
+import { BsEye } from "react-icons/bs";
 import { TbPencil, TbTrash } from "react-icons/tb";
 
 interface ActionsProps {
   handleHideActions: () => void;
   handleEditContact: () => void;
   handleDeleteContact: () => Promise<void>;
+  handleDetailContact: () => void;
 }
 
 export function Actions({
   handleHideActions,
   handleEditContact,
   handleDeleteContact,
+  handleDetailContact,
 }: ActionsProps) {
   return (
     <div
@@ -29,6 +32,13 @@ export function Actions({
       >
         <TbTrash size={20} />
         Excluir
+      </button>
+      <button
+        className="flex items-center justify-center gap-2 hover:bg-brand-600 p-2 text-brand-100"
+        onClick={handleDetailContact}
+      >
+        <BsEye size={20} />
+        Ver
       </button>
     </div>
   );
