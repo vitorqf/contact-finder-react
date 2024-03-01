@@ -1,7 +1,7 @@
 import moment from "moment";
 import { BsThreeDots } from "react-icons/bs";
-import { TbPencil, TbTrash } from "react-icons/tb";
 import { Contact } from "../../../models/Contact";
+import { Actions } from "../Actions";
 import { ContactCell } from "../Cell";
 import { useRow } from "./useRow";
 
@@ -27,25 +27,11 @@ export function ContactRow({ contact }: { contact: Contact }) {
           <BsThreeDots size={20} className="text-brand-100" />
 
           {showActions && (
-            <div
-              className="absolute top-0 right-0 w-32 flex flex-col z-10 bg-brand-800 border border-brand-600 rounded-md"
-              onMouseLeave={handleHideActions}
-            >
-              <button
-                onClick={handleEditContact}
-                className="flex items-center justify-center gap-2 hover:bg-brand-600 p-2 text-brand-100"
-              >
-                <TbPencil size={20} />
-                Editar
-              </button>
-              <button
-                className="flex items-center justify-center gap-2 hover:bg-brand-600 p-2 text-brand-100"
-                onClick={handleDeleteContact}
-              >
-                <TbTrash size={20} />
-                Excluir
-              </button>
-            </div>
+            <Actions
+              handleHideActions={handleHideActions}
+              handleEditContact={handleEditContact}
+              handleDeleteContact={handleDeleteContact}
+            />
           )}
         </button>
       </td>
