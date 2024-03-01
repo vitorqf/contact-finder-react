@@ -20,6 +20,7 @@ export function useHome() {
   const [loading, setLoading] = useState(false);
   const [contacts, setContacts] = useState<Contact[]>([]);
   const [total, setTotal] = useState(0);
+  const [search, setSearch] = useState("");
 
   const fetchData = useCallback(async () => {
     setLoading(true);
@@ -35,5 +36,5 @@ export function useHome() {
     fetchData();
   }, [fetchData]);
 
-  return { loading, contacts, total, fetchData };
+  return { loading, contacts, total, fetchData, search, setSearch };
 }
