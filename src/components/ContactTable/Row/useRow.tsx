@@ -1,4 +1,5 @@
 import { useCallback, useState } from "react";
+import deleteContact from "../../../actions/delete-contact";
 import useModal from "../../../hooks/useModal";
 import { Contact } from "../../../models/Contact";
 import { ModalEditContact } from "../../ModalEditContact";
@@ -25,14 +26,10 @@ export function useRow({ contact }: { contact: Contact }) {
     if (!ok) return;
 
     handleHideActions();
-    const response = await fetch(
-      `http://localhost:3000/contacts/${contact.id}`,
-      {
-        method: "DELETE",
-      }
-    ).then((res) => res.json());
 
-    if (response) {
+    const res = await deleteContact(contact.id);
+
+    if (res) {
       window.location.reload();
     }
   }, [contact, handleHideActions]);

@@ -1,5 +1,6 @@
 import { useCallback, useState } from "react";
 import * as Yup from "yup";
+import createContact from "../../actions/create-contact";
 
 interface FormStructure {
   name: string;
@@ -29,15 +30,10 @@ export function useModalAddContact() {
 
   const handleFormSubmit = useCallback(async (values: FormStructure) => {
     setSubmitting(true);
-    const response = await fetch("http://localhost:3000/contacts", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(values),
-    }).then((res) => res.json());
 
-    if (response) {
+    const res = await createContact(values);
+
+    if (res) {
       window.location.reload();
     }
 

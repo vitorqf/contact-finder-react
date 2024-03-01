@@ -1,17 +1,8 @@
 import { useCallback, useEffect, useState } from "react";
+import fetchContacts from "../../actions/fetch-contacts";
 import { ModalAddContact } from "../../components/ModalAddContact";
 import useModal from "../../hooks/useModal";
 import { Contact } from "../../models/Contact";
-
-async function getContacts() {
-  try {
-    const { results, total }: { results: Contact[]; total: number } =
-      await fetch("http://localhost:3000/contacts").then((res) => res.json());
-    return { results, total };
-  } catch (err) {
-    console.error(err);
-  }
-}
 
 interface fetchContacts {
   results: Contact[];
@@ -27,7 +18,7 @@ export function useHome() {
 
   const fetchData = useCallback(async () => {
     setLoading(true);
-    const data: fetchContacts | undefined = await getContacts();
+    const data: fetchContacts | undefined = await fetchContacts();
     if (data) {
       setContacts(data.results);
       setTotal(data.total);

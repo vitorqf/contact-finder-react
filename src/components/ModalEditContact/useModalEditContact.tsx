@@ -1,5 +1,6 @@
 import { useCallback, useState } from "react";
 import * as Yup from "yup";
+import updateContact from "../../actions/update-contact";
 import { Contact } from "../../models/Contact";
 
 interface FormStructure {
@@ -26,31 +27,25 @@ export function useModalEditContact({ contact }: { contact: Contact }) {
     phone: contact.phone,
   };
 
-  const handleFormSubmit = useCallback(async (values: FormStructure) => {
-    setSubmitting(true);
+  const handleFormSubmit = useCallback(
+    async (values: FormStructure) => {
+      setSubmitting(true);
 
-    if (!values.name || !values.email || !values.phone) {
-      setSubmitting(false);
-      return;
-    }
-
-    const response = await fetch(
-      `http://localhost:3000/contacts/${contact.id}`,
-      {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(values),
+      if (!values.name || !values.email || !values.phone) {
+        setSubmitting(false);
+        return;
       }
-    ).then((res) => res.json());
 
-    if (response) {
-      window.location.reload();
-    }
+      const res = await updateContact(contact.id, values);
 
-    setSubmitting(false);
-  }, []);
+      if (res) {
+        window.location.reload();
+      }
+
+      setSubmitting(false);
+    },
+    [contact.id]
+  );
 
   return { FormSchema, handleFormSubmit, initialValues, submitting };
 }
