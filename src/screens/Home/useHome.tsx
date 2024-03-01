@@ -1,4 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
+import { ModalAddContact } from "../../components/ModalAddContact";
+import useModal from "../../hooks/useModal";
 import { Contact } from "../../models/Contact";
 
 async function getContacts() {
@@ -21,6 +23,7 @@ export function useHome() {
   const [contacts, setContacts] = useState<Contact[]>([]);
   const [total, setTotal] = useState(0);
   const [search, setSearch] = useState("");
+  const { setModalContent } = useModal();
 
   const fetchData = useCallback(async () => {
     setLoading(true);
@@ -32,9 +35,21 @@ export function useHome() {
     setLoading(false);
   }, []);
 
+  const handleAddContact = useCallback(() => {
+    setModalContent(<ModalAddContact />);
+  }, [setModalContent]);
+
   useEffect(() => {
     fetchData();
   }, [fetchData]);
 
-  return { loading, contacts, total, fetchData, search, setSearch };
+  return {
+    loading,
+    contacts,
+    total,
+    fetchData,
+    search,
+    setSearch,
+    handleAddContact,
+  };
 }

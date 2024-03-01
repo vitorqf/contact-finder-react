@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.btn {
+  @apply bg-brand-800 h-10 px-2 gap-1 text-brand-100 border border-brand-400 flex items-center justify-center rounded-md;
+}
+
+.btn:disabled {
+  @apply disabled:cursor-not-allowed;
+}
+
+.btn:hover {
+  @apply hover:bg-brand-600 hover:text-white;
+}
