@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+html,
+body {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+}
+
 .btn {
   @apply bg-brand-800 h-10 px-2 gap-1 text-brand-100 border border-brand-400 flex items-center justify-center rounded-md;
 }

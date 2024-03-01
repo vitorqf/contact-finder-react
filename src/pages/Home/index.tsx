@@ -47,7 +47,7 @@ export default function Home() {
               />
             </div>
 
-            <div className="mr-4 flex items-center gap-2">
+            <div className="mr-2 flex items-center gap-2">
               <button onClick={handleAddContact} className="btn bg-brand-800">
                 <GoPlus size={24} className="text-brand-100" />
                 <span className="text-brand-100">Adicionar</span>
