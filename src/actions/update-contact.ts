@@ -6,7 +6,7 @@ export default async function updateContact(
   contact: Partial<Contact>
 ): Promise<Contact> {
   return await fetch(`${API_URL}/contacts/${id}`, {
-    method: "PUT",
+    method: "PATCH",
     headers: {
       "Content-Type": "application/json",
     },
