@@ -17,9 +17,24 @@ export function ModalAddContact() {
         onSubmit={handleFormSubmit}
       >
         <Form>
-          <InputField label="Nome" name="name" type="text" />
-          <InputField label="Email" name="email" type="email" />
-          <InputField label="Telefone" name="phone" type="tel" />
+          <InputField
+            label="Nome"
+            name="name"
+            type="text"
+            placeholder="Fulano da Silva"
+          />
+          <InputField
+            label="Email"
+            name="email"
+            type="email"
+            placeholder="exemplo@gmail.com"
+          />
+          <InputField
+            label="Telefone"
+            name="phone"
+            type="tel"
+            placeholder="(XX) X XXXX-XXXX"
+          />
           <button
             type="submit"
             className="w-full bg-green-600 text-white py-2 px-4 rounded-md hover:bg-green-700 transition-colors duration-300"
